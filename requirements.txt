@@ -1,0 +1,10 @@
+streamlit
+torch
+transformers
+sentencepiece
+pandas
+numpy
+regex
+ipykernel
+safetensors
+huggingface_hub
