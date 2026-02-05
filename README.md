@@ -1,4 +1,4 @@
-🐦 Twitter Tag Prediction using BERT
+# 🐦 Twitter Tag Prediction using BERT
 
 This project implements a Named Entity Recognition (NER) system for Twitter data using a fine-tuned BERT model.
 It is designed to handle noisy, real-world social media text (mentions, hashtags, informal language) and is deployed as an interactive Streamlit web application.
