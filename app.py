@@ -28,8 +28,7 @@ id2label = model.config.id2label
 # Preprocess function
 # ---------------------------------------------------
 def clean_and_tokenize(text):
-    # Remove punctuation except @ and #
-    import re
+    # Remove punctuation except @ and #, and split into words
     text = re.sub(r"[^\w\s@#]", "", text)
     return text.split()
 
@@ -78,7 +77,14 @@ tweet_text = st.text_area(
 if st.button("Post"):
     if tweet_text.strip():
         words = clean_and_tokenize(tweet_text)
-        results = predict_sentence(words)
+        
+        if not words:
+            st.warning("No valid tokens found after preprocessing.")
+            st.stop()
+
+        with st.spinner("Running BERT inference..."):
+            results = predict_sentence(words)
+
 
         st.subheader("Predicted Named Entity Tags")
         for word, tag in results:
